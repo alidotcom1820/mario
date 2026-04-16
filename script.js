@@ -55,16 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to apply random design to video
     function applyRandomDesign(element) {
-        const filters = [
-            `hue-rotate(${Math.random() * 360}deg)`,
-            `brightness(${0.5 + Math.random() * 1.5})`,
-            `contrast(${0.5 + Math.random() * 1.5})`,
-            `saturate(${0.5 + Math.random() * 2})`,
-            `sepia(${Math.random()})`,
-            `invert(${Math.random()})`
+        // Moderatere, aber sichtbare Filter
+        const filterOptions = [
+            `hue-rotate(${Math.floor(Math.random() * 360)}deg)` ,
+            `brightness(${(0.85 + Math.random() * 0.3).toFixed(2)})`,
+            `contrast(${(0.85 + Math.random() * 0.4).toFixed(2)})`,
+            `saturate(${(0.8 + Math.random() * 0.7).toFixed(2)})`,
+            `sepia(${(Math.random() * 0.5).toFixed(2)})`,
+            `invert(${(Math.random() * 0.3).toFixed(2)})`,
+            `grayscale(${(Math.random() * 0.4).toFixed(2)})`,
+            `blur(${(Math.random() * 1.5).toFixed(2)}px)`
         ];
-        const randomFilter = filters[Math.floor(Math.random() * filters.length)];
-        element.style.filter = randomFilter;
+        // Immer 2 verschiedene Filter kombinieren
+        let idx1 = Math.floor(Math.random() * filterOptions.length);
+        let idx2;
+        do {
+            idx2 = Math.floor(Math.random() * filterOptions.length);
+        } while (idx2 === idx1);
+        const filter = filterOptions[idx1] + ' ' + filterOptions[idx2];
+        element.style.filter = filter;
     }
 
     // Bouncing text animation like DVD logo
