@@ -15,12 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.getElementById('start-btn');
 
     // Video upload
+
     videoUpload.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
             const url = URL.createObjectURL(file);
             video.src = url;
             video.load();
+
+            // Für mobile Geräte: Video stummschalten und playsInline setzen
+            video.muted = true;
+            video.setAttribute('playsinline', '');
 
             // Apply random design
             applyRandomDesign(video);
