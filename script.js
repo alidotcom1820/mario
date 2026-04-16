@@ -23,13 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             video.src = url;
             video.load();
 
-            // Nur auf Mobilgeräten muten, sonst mit Ton
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                video.muted = true;
-                video.setAttribute('playsinline', '');
-            } else {
-                video.muted = false;
-            }
+            // Immer mit Ton abspielen
+            video.muted = false;
 
             // Apply random design
             applyRandomDesign(video);
