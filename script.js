@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         main.style.display = 'block';
     }, 3000);
 
-    // Video upload
 
+    const startBtn = document.getElementById('start-btn');
+
+    // Video upload
     videoUpload.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -23,10 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Apply random design
             applyRandomDesign(video);
 
-            // Video und Text ausblenden bis Play
+            // Video und Text ausblenden bis Start
             video.style.display = 'none';
             bouncingText.style.display = 'none';
+            startBtn.style.display = 'inline-block';
         }
+    });
+
+    // Start-Button klickt Video
+    startBtn.addEventListener('click', () => {
+        video.style.display = 'block';
+        bouncingText.style.display = 'block';
+        startBtn.style.display = 'none';
+        if (!animationRunning) animateText();
+        video.play();
     });
 
     // Show video when playing
