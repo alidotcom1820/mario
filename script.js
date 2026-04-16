@@ -78,25 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationRunning = false;
 
     function animateText() {
-        if (!animationRunning) {
-            animationRunning = true;
-            const container = document.getElementById('video-container');
-            const containerRect = container.getBoundingClientRect();
+        animationRunning = true;
+        const container = document.getElementById('video-container');
+        const containerRect = container.getBoundingClientRect();
 
-            x += dx;
-            y += dy;
+        x += dx;
+        y += dy;
 
-            if (x <= 0 || x + textWidth >= containerRect.width) {
-                dx = -dx;
-            }
-            if (y <= 0 || y + textHeight >= containerRect.height) {
-                dy = -dy;
-            }
-
-            bouncingText.style.left = x + 'px';
-            bouncingText.style.top = y + 'px';
-
-            requestAnimationFrame(animateText);
+        if (x <= 0 || x + textWidth >= containerRect.width) {
+            dx = -dx;
         }
+        if (y <= 0 || y + textHeight >= containerRect.height) {
+            dy = -dy;
+        }
+
+        bouncingText.style.left = x + 'px';
+        bouncingText.style.top = y + 'px';
+
+        requestAnimationFrame(animateText);
     }
 });
