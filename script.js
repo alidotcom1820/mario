@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to apply random design to video
     function applyRandomDesign(element) {
-        // Moderatere, aber sichtbare Filter
+        // Moderatere, aber sichtbare Filter inkl. drop-shadow
         const filterOptions = [
             `hue-rotate(${Math.floor(Math.random() * 360)}deg)` ,
             `brightness(${(0.85 + Math.random() * 0.3).toFixed(2)})`,
@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `sepia(${(Math.random() * 0.5).toFixed(2)})`,
             `invert(${(Math.random() * 0.3).toFixed(2)})`,
             `grayscale(${(Math.random() * 0.4).toFixed(2)})`,
-            `blur(${(Math.random() * 1.5).toFixed(2)}px)`
+            `blur(${(Math.random() * 1.5).toFixed(2)}px)`,
+            `drop-shadow(0 0 16px rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},0.7))`
         ];
         // Immer 2 verschiedene Filter kombinieren
         let idx1 = Math.floor(Math.random() * filterOptions.length);
