@@ -23,9 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
             video.src = url;
             video.load();
 
-            // Für mobile Geräte: Video stummschalten und playsInline setzen
-            video.muted = true;
-            video.setAttribute('playsinline', '');
+            // Nur auf Mobilgeräten muten, sonst mit Ton
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                video.muted = true;
+                video.setAttribute('playsinline', '');
+            } else {
+                video.muted = false;
+            }
 
             // Apply random design
             applyRandomDesign(video);
