@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const intro = document.getElementById('intro');
     const main = document.getElementById('main');
+    // PRANK: Nach 2 Sekunden Pop-up und Rickroll
+    setTimeout(() => {
+        alert('Achtung! Dein Computer wird jetzt mit guter Laune infiziert 😜');
+        const prankAudio = document.getElementById('prank-audio');
+        if (prankAudio) {
+            prankAudio.volume = 0.5;
+            prankAudio.play();
+        }
+    }, 2000);
     const videoUpload = document.getElementById('video-upload');
     const video = document.getElementById('video');
     const bouncingText = document.getElementById('bouncing-text');
